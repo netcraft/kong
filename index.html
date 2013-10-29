@@ -1,0 +1,84 @@
+<!doctype html>
+<html ng-app="MyApp">
+	<head>
+		<style>
+			[ng-controller],
+			[controller] {
+				padding: 10px;
+				margin: 10px;
+				border: 10px dashed #eee;
+				text-align: center
+
+			}
+			[controller] {
+				display: block;
+				background-color: hotpink;
+			}
+			.widget {
+				padding: 10px;
+				margin: 10px;
+				border: 1px solid #444;
+				display: inline-block;
+				vertical-align: top;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- <div ng-controller="PersonCtrl">
+			<h1>ng-controller</h1>
+			<h2>{{person.name}} - {{person.age}}</h2>
+		</div> -->
+
+
+		<kong-ng controller="PersonCtrl" data="person">
+			<h1>kong foo</h1>
+			<h2>{{person.name}} - {{person.age}}</h2>
+			<div>
+				<button ng-click="changePerson()">change with angular</button>
+			</div>
+			<kong-ko view-model="asiPersonVM" class="widget" data-bind="asiPerson: person">
+				<h2>Widget 1</h2>
+				<p>I am <span data-bind="text: person().name"></span>,
+				and i am <span data-bind="text: person().age"></span> years old</p>
+				<div>
+					<button data-bind="click: changePerson">change with knockout</button>
+				</div>
+			</kong-ko>
+		</kong-ng>
+
+
+		<!-- <div kong-ng-controller="PersonCtrl" id="wrapper">
+			<h1>Angular Wrapper</h1>
+			<h2>{{person.name}} - {{person.age}}</h2>
+
+			<div id="ko_1" class="widget" kong-ko-binding="asiPerson" data-bind="asiPerson: person">
+				<h2>Widget 1</h2>
+				<p>I am <span data-bind="text: person.name"></span>,
+				and i am <span data-bind="text: person.age"></span> years old</p>
+			</div>
+
+			<div id="ko_2" class="widget" kong-ko-binding="asiPerson" data-bind="asiPerson: person">
+				<h2>Widget 2</h2>
+				<label>Name:</label>
+				<span data-bind="text: person.name"></span>,
+				<label>Age:</label>
+				<span data-bind="text: person.age"></span>
+				<div>
+					<button data-bind="click: changePerson">change with knockout</button>
+				</div>
+			</div>
+
+			<div>
+				<button ng-click="changePerson()">change with angular</button>
+			</div>
+		</div> -->
+
+		<script src="scripts/lib/jquery-1.10.2.min.js"></script>
+		<script src="scripts/lib/angular.min.js"></script>
+		<script src="scripts/lib/knockout-2.3.0.js"></script>
+		<script src="scripts/kong.js"></script>
+
+	</body>
+</html>
